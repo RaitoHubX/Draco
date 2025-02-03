@@ -1,0 +1,64 @@
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@500&display=swap');
+
+body {
+    margin: 0;
+    overflow: hidden;
+    font-family: 'Orbitron', sans-serif;
+    color: red;
+    text-align: center;
+}
+
+canvas {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+}
+
+.container {
+    position: relative;
+    top: 40%;
+    transform: translateY(-50%);
+}
+
+.title {
+    font-size: 50px;
+    font-weight: bold;
+    text-shadow: 0 0 10px red;
+}
+
+.users, .beams {
+    position: absolute;
+    font-size: 20px;
+    color: red;
+}
+
+.users {
+    left: 20%;
+    top: 10%;
+}
+
+.beams {
+    right: 20%;
+    top: 10%;
+}
+
+.discord-btn {
+    display: inline-block;
+    margin-top: 20px;
+    padding: 15px 25px;
+    background: #222;
+    color: white;
+    text-decoration: none;
+    font-size: 18px;
+    border: 2px solid red;
+    border-radius: 5px;
+    transition: 0.3s;
+}
+
+.discord-btn:hover {
+    background: red;
+    color: black;
+}
