@@ -1,61 +1,63 @@
-const canvas = document.getElementById('background');
-const ctx = canvas.getContext('2d');
-
-canvas.width = window.innerWidth;
-canvas.height = window.innerHeight;
-
-let particles = [];
-
-class Particle {
-    constructor(x, y, speedX, speedY, size) {
-        this.x = x;
-        this.y = y;
-        this.speedX = speedX;
-        this.speedY = speedY;
-        this.size = size;
-    }
-
-    update() {
-        this.x += this.speedX;
-        this.y += this.speedY;
-
-        if (this.size > 0.2) this.size -= 0.02;
-    }
-
-    draw() {
-        ctx.fillStyle = 'red';
-        ctx.beginPath();
-        ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
-        ctx.fill();
-    }
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
 }
 
-function init() {
-    for (let i = 0; i < 100; i++) {
-        let size = Math.random() * 3 + 1;
-        let x = Math.random() * canvas.width;
-        let y = Math.random() * canvas.height;
-        let speedX = (Math.random() - 0.5) * 1.5;
-        let speedY = (Math.random() - 0.5) * 1.5;
-        particles.push(new Particle(x, y, speedX, speedY, size));
-    }
+body {
+    background-color: black;
+    color: red;
+    text-align: center;
+    overflow: hidden;
 }
 
-function animate() {
-    ctx.clearRect(0, 0, canvas.width, canvas.height);
-
-    for (let i = 0; i < particles.length; i++) {
-        particles[i].update();
-        particles[i].draw();
-    }
-
-    requestAnimationFrame(animate);
+canvas {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
 }
 
-init();
-animate();
+.container {
+    position: relative;
+    top: 40vh;
+}
 
-window.addEventListener('resize', () => {
-    canvas.width = window.innerWidth;
-    canvas.height = window.innerHeight;
-});
+.title {
+    font-size: 3rem;
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+
+.stats {
+    position: absolute;
+    font-size: 1.5rem;
+}
+
+.left {
+    left: 10%;
+    top: -40px;
+}
+
+.right {
+    right: 10%;
+    top: -40px;
+}
+
+.discord-btn {
+    background: rgba(255, 255, 255, 0.1);
+    border: 2px solid white;
+    padding: 10px 20px;
+    font-size: 1.2rem;
+    cursor: pointer;
+    color: white;
+    border-radius: 5px;
+    transition: 0.3s;
+}
+
+.discord-btn:hover {
+    background: rgba(255, 255, 255, 0.3);
+}
